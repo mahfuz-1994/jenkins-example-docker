@@ -9,6 +9,13 @@ pipeline {
         bat 'mvn --version'
       }
     }
+    
+    stage('container'){
+      steps{
+        bat 'docker run -it --name container ubuntu'
+       }
+    }
+    
     stage('Front-end') {
       agent {
         docker { image 'ubuntu' }
