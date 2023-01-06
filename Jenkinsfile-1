@@ -3,16 +3,16 @@ pipeline {
     docker { image 'ubuntu' }
   }
   stages {
-    stage('Test') {
-      steps {
-        bat 'ubuntu --version'
-      }
-    }
-    
     stage('build'){
       steps{
         bat 'docker build -td ubuntu .'
        }
+    }
+    
+    stage('Test') {
+      steps {
+        bat 'ubuntu --version'
+      }
     }
   }
 }
